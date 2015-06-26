@@ -2,7 +2,7 @@
 layout: article
 title: Columns Clone
 modified:
-categories: programs game
+categories: programs
 excerpt: A Columns clone made in 1997 that features a “PRO” mode.
 tags: []
 image:
