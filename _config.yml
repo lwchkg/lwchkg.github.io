@@ -1,0 +1,54 @@
+# Site wide configuration
+
+title: lwchkg’s land
+description: > # this means to ignore newlines until "baseurl:"
+  The web site of Leung WC. A place for programs and mathematics.
+  Computing information can also be found here.
+logo: logo.png # 120x120 px default image used for Twitter summary card
+teaser: categories/programs2_400.jpg # 400x250 px default teaser image used in image archive grid
+locale: en-US
+url:
+
+## Octopress configuration
+# Default extensions
+post_ext: md
+page_ext: md
+
+# Found in _templates/
+post_layout: article
+page_layout: article
+
+# Format titles with titlecase?
+titlecase: true
+
+
+# Jekyll configuration
+
+markdown: kramdown
+
+sass:
+    sass_dir: _sass
+    style: compressed
+permalink: /:categories/:title/
+kramdown:
+  input: GFM
+  toc_levels: 1..3
+highlighter: pygments
+#gems:
+#  - jekyll-sitemap
+
+
+# Site owner
+owner:
+  name: Leung Wing Chung
+  email: lwchkg@gmail.com
+  twitter:
+  google:
+    ad-client: 
+    ad-slot: 
+  bio: 
+  avatar: bio-photo.png # 160x160 px image for author byline
+  disqus-shortname: lwchkg
+
+
+exclude: ["lib", "config.rb", ".sass-cache", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "*.sublime-project", "*.sublime-workspace", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "node_modules", "Gruntfile.js", "package.json"]
