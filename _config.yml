@@ -29,7 +29,7 @@ markdown: kramdown
 
 sass:
     sass_dir: _sass
-    style: compressed
+    style: compact
 permalink: /:categories/:title/
 kramdown:
   input: GFM

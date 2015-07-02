@@ -5,6 +5,11 @@
   excerpt: See and download lwchkg’s programs
   image: categories/programs_300.jpg
   
+- title: Algorithm
+  url: /algorithm
+  excerpt: Algorithm design and implementation
+  image: categories/algorithm_300.jpg
+
 - title: Math
   url: /math
   excerpt: lwchkg’s notes in mathematics
