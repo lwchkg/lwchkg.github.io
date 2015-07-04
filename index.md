@@ -11,6 +11,6 @@ You may also find something [about me](about.html).
 
 <div class="tiles">
 {% for post in site.posts %}
-	{% include post-grid.html %}
+	{% include post-grid.html show-categories="true" %}
 {% endfor %}
 </div><!-- /.tiles -->
