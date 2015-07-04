@@ -52,7 +52,7 @@ Wait... Can the dictionary arranged in some way that matching can be more effici
 
 Store the dictionary into a **trie**. Then all end positions can be matched with a single lookup. For example, if “chairmanzzzz” is matched against a trie, both “chair” and “chairman” can be return at the same time.
 
-Since each dictionary word only consist of a few letters (i.e. averages to a small constant), the matching can be done in constant time no matter how long the given string is. It means the matching has only complexity *O*(*n*) now.
+Since each dictionary word only consist of a few letters (i.e. averages to a small constant), the matching can be done in constant time no matter how long the given string is. It means the matching has complexity *O*(*n*) now.
 
 (Note: There is a powerful Aho-Corasick algorithm that uses a modified trie to return all dictionary matches with one single lookup. Since I just want to test the approach, I decided not to use Aho-Corasick because it adds complexity.)
 
@@ -107,9 +107,9 @@ Now there is one other problem: <tt>eyesonme</tt> becomes <tt>eye son me</tt> in
 
 ## Revised version
 
-The revised version returns better results. So we try splitting the passage again.
+The revised version returns better results. So we try splitting a whole passage from Wikipedia.
 
-The program was run in a [ZOTAC ZBOX AD-02](http://www.zotac.com/ca/products/mini-pcs/product/mini-pcs/detail/zbox-ad02-1.html) with an AMD E-350 CPU.
+The timing data in the output was produced in a [ZOTAC ZBOX AD-02](http://www.zotac.com/ca/products/mini-pcs/product/mini-pcs/detail/zbox-ad02-1.html) with an AMD E-350 CPU.
 
 ** Input data (spaces are removed) **
 

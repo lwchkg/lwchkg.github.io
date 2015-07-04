@@ -82,6 +82,10 @@ tt, code, kbd, samp, pre {
 		word-wrap: break-word;
 	}
 }
+tt, code, kbd, samp {
+	white-space: pre-wrap;
+}
+
 pre {
 	overflow-x: auto; // add scrollbars to wide code blocks
 	@include font-size(16,no);
@@ -129,6 +133,9 @@ figure {
         box-shadow: 0 0 10px rgba($black, .20);
       }
     }
+  }
+  &.full {
+    @include outer-container;
   }
   &.half {
     @include outer-container;
@@ -181,6 +188,7 @@ figcaption {
   }
 }
 
+.full,
 .half,
 .third {
   & figcaption { /* Remove caption indents */
