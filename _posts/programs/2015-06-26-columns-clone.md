@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Columns Clone
+title: Columns Clone (updated)
 modified:
 categories: programs
 excerpt: A Columns clone made in 1997 that features a “PRO” mode.
@@ -10,25 +10,35 @@ image:
   teaser: programs/columns_clone_400.jpg
   thumb: 
 comments: true
-date: 2015-06-26T00:38:58+08:00
+date: 2016-01-04T01:35:58+08:00
 ---
 
 <aside>
-<img alt="Columns clone screenshot" src="{{ site_url }}/images/programs/columns_screenshot_01.png">
+<a href="columns-clone.html"><img alt="Columns clone screenshot" src="{{ site_url }}/images/programs/columns_screenshot_01.png"></a>
 </aside>
 
-This clone of Columns was made in 1997, just after I had my public exam. This game features a “PRO” mode, which a worst possible piece is always generated. 
+This clone of Columns was made in 1997, just after I had my public exam. This game features a “PRO” mode, which a worst possible piece is always generated.
 
 You may compare the “PRO” mode with [Bastet Tetris](http://fph.altervista.org/prog/bastet.html) by Federico Poloni.
+
+The program was ported from Visual Basic for DOS / SVGAPV to FreeBasic in 2007.
+
+## Play in browser
+{:.no_toc}
+
+[Click here](columns-clone.html) to play the game in the browser. A keyboard is required to play the game.
+
+This is made possible by [em-dosbox](https://github.com/dreamlayers/em-dosbox) by Boris Gjenero, DOSBox and Emscripten.
 
 ## Download
 {:.no_toc}
 
-- [Windows version binary]({{ site_url }}/assets/columns/columns_win_binary.7z) (updated in 2007)
-- [Windows version source (FreeBasic)]({{ site_url }}/assets/columns/columns_fb_src.7z) 
-- [DOS version binaries (SVGA, CGA, text mode)]({{ site_url }}/assets/columns/columns_dos_binary.zip) (original 1997 version)
-- [DOS version source (Visual Basic for DOS) and graphics assets]({{ site_url }}/assets/columns/columns_dos_src.zip) 
+- [Windows version binary]({{ site_url }}/assets/columns/columns_win_binary.7z)
+- [Windows version source (FreeBasic)]({{ site_url }}/assets/columns/columns_fb_src.7z)
+- [DOS version binaries (SVGA, CGA, text mode)]({{ site_url }}/assets/columns/columns_dos_binary.zip)
+- [DOS version source (Visual Basic for DOS) and graphics assets]({{ site_url }}/assets/columns/columns_dos_src.zip)
 
+(Last update: 3-Jan-2016)
 
 ## Game manual
 {:.no_toc}
@@ -75,7 +85,7 @@ For the DOS version, read the file README for controls.
 | A → B → C → ... | S            | Right        |
 | C → B → A → ... | X            | Down         |
 
-
+Pressing “Next Letter” at the third letter finishes high score input.
 
 ## Gameplay
 
@@ -138,3 +148,10 @@ Middle        | 80000
 Advanced      | 65000
 Professional  | 50000
 
+## Updates
+
+**04-Jan-2016**
+
+- Fixed wrong bounds calculation, which results in crashes in FreeBasic version.<br>(P.S.: I have no idea why this is not caught in VB-DOS.)
+- FreeBasic version updated to allow compilation to 64-bit and DOS executable.
+- Renamed variables to avoid conflict with the new keywords (i.e. True and False) in FreeBasic 1.04.

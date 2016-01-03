@@ -1,0 +1,381 @@
+---
+layout: article
+title: Columns Clone
+---
+<p>Note: a keyboard is required to play the game.</p>
+
+    <style>
+      .emscripten { padding-right: 0; margin-left: auto; margin-right: auto; display: block; }
+      textarea.emscripten { font-family: monospace; width: 80%; }
+      div.emscripten { text-align: center; }
+      div.emscripten_border { border: 1px solid black; }
+      /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
+      canvas.emscripten { border: 0px none; }
+    </style>
+
+    <div class="emscripten" id="status">Downloading...</div>
+    <div class="emscripten">
+      <progress value="0" max="100" id="progress" hidden=1></progress>  
+    </div>
+    <div class="emscripten_border">
+      <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+    </div>
+    <hr/>
+    <div class="emscripten">
+      <input type="checkbox" id="resize">Resize canvas
+      <input type="checkbox" id="pointerLock" checked>Lock/hide mouse pointer
+      &nbsp;&nbsp;&nbsp;
+      <input type="button" value="Fullscreen" onclick="Module.requestFullScreen(document.getElementById('pointerLock').checked, 
+                                                                                document.getElementById('resize').checked)">
+    </div>
+    
+<h2 id="controls">Controls</h2>
+
+<h3 id="keys">Keys</h3>
+
+<ul>
+  <li>Left Player: A, S, D, X</li>
+  <li>Right Player: (in numeric keypad) Left, Centre, Right, Down. Make sure that NUM LOCK is ON!</li>
+  <li>Quit Game: ESC (Crashes the game. Refresh page to play again.)</li>
+</ul>
+
+<h3 id="not-during-a-game">Not During a Game</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th style="text-align: center">Left Player</th>
+      <th style="text-align: center">Right Player</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Level</td>
+      <td style="text-align: center">A</td>
+      <td style="text-align: center">Left</td>
+    </tr>
+    <tr>
+      <td>Difficulty</td>
+      <td style="text-align: center">D</td>
+      <td style="text-align: center">Centre</td>
+    </tr>
+    <tr>
+      <td>Start Game</td>
+      <td style="text-align: center">S</td>
+      <td style="text-align: center">Right</td>
+    </tr>
+    <tr>
+      <td>High Score</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">Down</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="during-a-game">During a Game</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th style="text-align: center">Left Player</th>
+      <th style="text-align: center">Right Player</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Move Left</td>
+      <td style="text-align: center">A</td>
+      <td style="text-align: center">Left</td>
+    </tr>
+    <tr>
+      <td>Move Right</td>
+      <td style="text-align: center">D</td>
+      <td style="text-align: center">Centre</td>
+    </tr>
+    <tr>
+      <td>Cycle Jewels</td>
+      <td style="text-align: center">S</td>
+      <td style="text-align: center">Right</td>
+    </tr>
+    <tr>
+      <td>Drop</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">Down</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="entering-name-for-high-score">Entering Name for High Score</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th style="text-align: center">Left Player</th>
+      <th style="text-align: center">Right Player</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Previous Letter</td>
+      <td style="text-align: center">A</td>
+      <td style="text-align: center">Left</td>
+    </tr>
+    <tr>
+      <td>Next Letter</td>
+      <td style="text-align: center">D</td>
+      <td style="text-align: center">Centre</td>
+    </tr>
+    <tr>
+      <td>A → B → C → …</td>
+      <td style="text-align: center">S</td>
+      <td style="text-align: center">Right</td>
+    </tr>
+    <tr>
+      <td>C → B → A → …</td>
+      <td style="text-align: center">X</td>
+      <td style="text-align: center">Down</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Pressing “Next Letter” at the third letter finishes high score input.</p>
+    
+    <hr/>
+    <textarea class="emscripten" id="output" rows="8"></textarea>
+
+    <script type='text/javascript'>
+      // connect to canvas
+      var Module = {
+        preRun: [],
+        postRun: [],
+        print: (function() {
+          var element = document.getElementById('output');
+          element.value = ''; // clear browser cache
+          return function(text) {
+            text = Array.prototype.slice.call(arguments).join(' ');
+            // These replacements are necessary if you render to raw HTML
+            //text = text.replace(/&/g, "&amp;");
+            //text = text.replace(/</g, "&lt;");
+            //text = text.replace(/>/g, "&gt;");
+            //text = text.replace('\n', '<br>', 'g');
+            element.value += text + "\n";
+            element.scrollTop = element.scrollHeight; // focus on bottom
+          };
+        })(),
+        printErr: function(text) {
+          text = Array.prototype.slice.call(arguments).join(' ');
+          if (0) { // XXX disabled for safety typeof dump == 'function') {
+            dump(text + '\n'); // fast, straight to the real console
+          } else {
+            console.log(text);
+          }
+        },
+        canvas: document.getElementById('canvas'),
+        setStatus: function(text) {
+          if (!Module.setStatus.last) Module.setStatus.last = { time: Date.now(), text: '' };
+          if (text === Module.setStatus.text) return;
+          var m = text.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/);
+          var now = Date.now();
+          if (m && now - Date.now() < 30) return; // if this is a progress update, skip it if too soon
+          var statusElement = document.getElementById('status');
+          var progressElement = document.getElementById('progress');
+          if (m) {
+            text = m[1];
+            progressElement.value = parseInt(m[2])*100;
+            progressElement.max = parseInt(m[4])*100;
+            progressElement.hidden = false;
+          } else {
+            progressElement.value = null;
+            progressElement.max = null;
+            progressElement.hidden = true;
+          }
+          statusElement.innerHTML = text;
+        },
+        totalDependencies: 0,
+        monitorRunDependencies: function(left) {
+          this.totalDependencies = Math.max(this.totalDependencies, left);
+          Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies-left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
+        }
+      };
+      Module.setStatus('Downloading...');
+    </script>
+<script type="text/javascript">
+var Module;
+
+if (typeof Module === 'undefined') Module = eval('(function() { try { return Module || {} } catch(e) { return {} } })()');
+
+if (!Module.expectedDataFileDownloads) {
+  Module.expectedDataFileDownloads = 0;
+  Module.finishedDataFileDownloads = 0;
+}
+Module.expectedDataFileDownloads++;
+(function() {
+ var loadPackage = function(metadata) {
+
+    var PACKAGE_PATH;
+    if (typeof window === 'object') {
+      PACKAGE_PATH = window['encodeURIComponent'](window.location.pathname.toString().substring(0, window.location.pathname.toString().lastIndexOf('/')) + '/');
+    } else if (typeof location !== 'undefined') {
+      // worker
+      PACKAGE_PATH = encodeURIComponent(location.pathname.toString().substring(0, location.pathname.toString().lastIndexOf('/')) + '/');
+    } else {
+      throw 'using preloaded data can only be done on a web page or in a web worker';
+    }
+    var PACKAGE_NAME = 'D:\Downloads\em-dosbox-em-dosbox-svn-sdl2\src\columns-clone.data';
+    var REMOTE_PACKAGE_BASE = 'columns-clone.data';
+    if (typeof Module['locateFilePackage'] === 'function' && !Module['locateFile']) {
+      Module['locateFile'] = Module['locateFilePackage'];
+      Module.printErr('warning: you defined Module.locateFilePackage, that has been renamed to Module.locateFile (using your locateFilePackage for now)');
+    }
+    var REMOTE_PACKAGE_NAME = typeof Module['locateFile'] === 'function' ?
+                              Module['locateFile'](REMOTE_PACKAGE_BASE) :
+                              ((Module['filePackagePrefixURL'] || '') + REMOTE_PACKAGE_BASE);
+  
+    var REMOTE_PACKAGE_SIZE = metadata.remote_package_size;
+    var PACKAGE_UUID = metadata.package_uuid;
+  
+    function fetchRemotePackage(packageName, packageSize, callback, errback) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', packageName, true);
+      xhr.responseType = 'arraybuffer';
+      xhr.onprogress = function(event) {
+        var url = packageName;
+        var size = packageSize;
+        if (event.total) size = event.total;
+        if (event.loaded) {
+          if (!xhr.addedTotal) {
+            xhr.addedTotal = true;
+            if (!Module.dataFileDownloads) Module.dataFileDownloads = {};
+            Module.dataFileDownloads[url] = {
+              loaded: event.loaded,
+              total: size
+            };
+          } else {
+            Module.dataFileDownloads[url].loaded = event.loaded;
+          }
+          var total = 0;
+          var loaded = 0;
+          var num = 0;
+          for (var download in Module.dataFileDownloads) {
+          var data = Module.dataFileDownloads[download];
+            total += data.total;
+            loaded += data.loaded;
+            num++;
+          }
+          total = Math.ceil(total * Module.expectedDataFileDownloads/num);
+          if (Module['setStatus']) Module['setStatus']('Downloading data... (' + loaded + '/' + total + ')');
+        } else if (!Module.dataFileDownloads) {
+          if (Module['setStatus']) Module['setStatus']('Downloading data...');
+        }
+      };
+      xhr.onload = function(event) {
+        var packageData = xhr.response;
+        callback(packageData);
+      };
+      xhr.send(null);
+    };
+
+    function handleError(error) {
+      console.error('package error:', error);
+    };
+  
+      var fetched = null, fetchedCallback = null;
+      fetchRemotePackage(REMOTE_PACKAGE_NAME, REMOTE_PACKAGE_SIZE, function(data) {
+        if (fetchedCallback) {
+          fetchedCallback(data);
+          fetchedCallback = null;
+        } else {
+          fetched = data;
+        }
+      }, handleError);
+    
+  function runWithFS() {
+
+    function assert(check, msg) {
+      if (!check) throw msg + new Error().stack;
+    }
+
+    function DataRequest(start, end, crunched, audio) {
+      this.start = start;
+      this.end = end;
+      this.crunched = crunched;
+      this.audio = audio;
+    }
+    DataRequest.prototype = {
+      requests: {},
+      open: function(mode, name) {
+        this.name = name;
+        this.requests[name] = this;
+        Module['addRunDependency']('fp ' + this.name);
+      },
+      send: function() {},
+      onload: function() {
+        var byteArray = this.byteArray.subarray(this.start, this.end);
+
+          this.finish(byteArray);
+
+      },
+      finish: function(byteArray) {
+        var that = this;
+
+        Module['FS_createDataFile'](this.name, null, byteArray, true, true, true); // canOwn this data in the filesystem, it is a slide into the heap that will never change
+        Module['removeRunDependency']('fp ' + that.name);
+
+        this.requests[this.name] = null;
+      },
+    };
+
+        var files = metadata.files;
+        for (i = 0; i < files.length; ++i) {
+          new DataRequest(files[i].start, files[i].end, files[i].crunched, files[i].audio).open('GET', files[i].filename);
+        }
+
+  
+    function processPackageData(arrayBuffer) {
+      Module.finishedDataFileDownloads++;
+      assert(arrayBuffer, 'Loading data file failed.');
+      assert(arrayBuffer instanceof ArrayBuffer, 'bad input to processPackageData');
+      var byteArray = new Uint8Array(arrayBuffer);
+      var curr;
+      
+        // Reuse the bytearray from the XHR as the source for file reads.
+        DataRequest.prototype.byteArray = byteArray;
+  
+          var files = metadata.files;
+          for (i = 0; i < files.length; ++i) {
+            DataRequest.prototype.requests[files[i].filename].onload();
+          }
+              Module['removeRunDependency']('datafile_D:\Downloads\em-dosbox-em-dosbox-svn-sdl2\src\columns-clone.data');
+
+    };
+    Module['addRunDependency']('datafile_D:\Downloads\em-dosbox-em-dosbox-svn-sdl2\src\columns-clone.data');
+  
+    if (!Module.preloadResults) Module.preloadResults = {};
+  
+      Module.preloadResults[PACKAGE_NAME] = {fromCache: false};
+      if (fetched) {
+        processPackageData(fetched);
+        fetched = null;
+      } else {
+        fetchedCallback = processPackageData;
+      }
+    
+  }
+  if (Module['calledRun']) {
+    runWithFS();
+  } else {
+    if (!Module['preRun']) Module['preRun'] = [];
+    Module["preRun"].push(runWithFS); // FS is not initialized yet, wait for it
+  }
+
+ }
+ loadPackage({"files": [{"audio": 0, "start": 0, "crunched": 0, "end": 43404, "filename": "/ALPHA.GRP"}, {"audio": 0, "start": 43404, "crunched": 0, "end": 60780, "filename": "/BLOCKS.GRP"}, {"audio": 0, "start": 60780, "crunched": 0, "end": 61548, "filename": "/COLSVGA.PAL"}, {"audio": 0, "start": 61548, "crunched": 0, "end": 154002, "filename": "/COLUMNS.EXE"}, {"audio": 0, "start": 154002, "crunched": 0, "end": 156774, "filename": "/DIFFS.GRP"}, {"audio": 0, "start": 156774, "crunched": 0, "end": 156830, "filename": "/dosbox.conf"}, {"audio": 0, "start": 156830, "crunched": 0, "end": 157270, "filename": "/HIGH.DAT"}, {"audio": 0, "start": 157270, "crunched": 0, "end": 159870, "filename": "/NUMBERS.GRP"}, {"audio": 0, "start": 159870, "crunched": 0, "end": 164522, "filename": "/README.TXT"}, {"audio": 0, "start": 164522, "crunched": 0, "end": 169234, "filename": "/SC.GRP"}], "remote_package_size": 169234, "package_uuid": "3d13f474-62b6-4b4b-861f-8ba4ea15d691"});
+
+})();
+
+Module['arguments'] = [ './COLUMNS.EXE' ];
+</script>
+    <script async type="text/javascript" src="/js/dosbox/dosbox.js"></script>
