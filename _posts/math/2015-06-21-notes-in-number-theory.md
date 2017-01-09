@@ -14,7 +14,7 @@ date: 2015-06-21T18:41:08+08:00
 
 ## Download the notes
 
-You may download the notes [here]({{ site.url }}/assets/number-theory.pdf).
+You may download the notes [here]({% link assets/number-theory.pdf %}).
 
 
 ## About the notes

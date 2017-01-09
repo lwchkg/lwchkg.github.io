@@ -18,7 +18,7 @@ This is a collection of VB.NET utilities I have created when I was teaching VB.N
 ## Download
 {:.no_toc}
 
-- [Binary]({{ site_url }}/assets/vb.net-util.7z) (Compiled with VB 2010 with .NET Framework 4)
+- [Binary]({% link assets/vb.net-util.7z %}) (Compiled with VB 2010 with .NET Framework 4)
 
 - [Source](https://github.com/lwchkg/vb.net-util)
 
@@ -32,9 +32,9 @@ This is a collection of VB.NET utilities I have created when I was teaching VB.N
 As their name implies, they are used to demonstrate the capabilities of MsgBox and InputBox statements.
 
 <figure class="half">
-<img alt="MsgBox Demo Screenshot" src="{{ site_url }}/images/programs/vbnetutil_screenshot_01.png">
+<img alt="MsgBox Demo Screenshot" src="{% link images/programs/vbnetutil_screenshot_01.png %}">
 <br><br>
-<img alt="InputBox Demo Screenshot" src="{{ site_url }}/images/programs/vbnetutil_screenshot_02.png">
+<img alt="InputBox Demo Screenshot" src="{% link images/programs/vbnetutil_screenshot_02.png %}">
 <figcaption>Screenshots of MsgBox Demo and InputBox Demo</figcaption>
 </figure>
 
@@ -53,7 +53,7 @@ The programs are used myself to create the teacher’s version of VB.NET workshe
 This program finds out the values of multiple VB.NET expressions. Enter one expression in a line, and this program outputs the result in the corresponding line. The main use of the program is to create worksheets which ask students to evaluate VB.NET expressions. (Manual calculations are prone to errors, so automation is necessary.)
 
 <figure class="full">
-<img alt="Expression Evaluator Screenshot" src="{{ site_url }}/images/programs/vbnetutil_screenshot_03.png">
+<img alt="Expression Evaluator Screenshot" src="{% link images/programs/vbnetutil_screenshot_03.png %}">
 <figcaption>Screenshot of Expression Evaluator</figcaption>
 </figure>
 
@@ -91,6 +91,6 @@ The Console input can be specified when you execute the program. The input can b
 Subroutines (i.e. `Sub` and `Function`) are not supported.
 
 <figure class="full">
-<img alt="Snippet Runner Screenshot" src="{{ site_url }}/images/programs/vbnetutil_screenshot_04.png">
+<img alt="Snippet Runner Screenshot" src="{% link images/programs/vbnetutil_screenshot_04.png %}">
 <figcaption>Screenshot of Snippet Runner</figcaption>
 </figure>

@@ -18,8 +18,8 @@ You are given a grid of pipes of different shapes. The aim of the game is to con
 You may connect the pipes by rotating the pieces only. See the pictures below to see what a new game and its finished state look like.
 
 <figure class="half">
-	<img alt="start" src="{{ site_url }}/images/programs/pipes_intro1.png">
-	<img alt="finish" src="{{ site_url }}/images/programs/pipes_intro2.png">
+	<img alt="start" src="{% link images/programs/pipes_intro1.png %}">
+	<img alt="finish" src="{% link images/programs/pipes_intro2.png %}">
 </figure>
 
 ## Playing the game

@@ -6,15 +6,15 @@ categories: programs
 excerpt: A Columns clone made in 1997 that features a “PRO” mode.
 tags: []
 image:
-  feature: 
+  feature:
   teaser: programs/columns_clone_400.jpg
-  thumb: 
+  thumb:
 comments: true
 date: 2016-01-04T01:35:58+08:00
 ---
 
 <aside>
-<a href="columns-clone.html"><img alt="Columns clone screenshot" src="{{ site_url }}/images/programs/columns_screenshot_01.png"></a>
+<a href="{% link programs/columns-clone/columns-clone.html %}"><img alt="Columns clone screenshot" src="{% link images/programs/columns_screenshot_01.png %}"></a>
 </aside>
 
 This clone of Columns was made in 1997, just after I had my public exam. This game features a “PRO” mode, which a worst possible piece is always generated.
@@ -26,17 +26,17 @@ The program was ported from Visual Basic for DOS / SVGAPV to FreeBasic in 2007.
 ## Play in browser
 {:.no_toc}
 
-[Click here](columns-clone.html) to play the game in the browser. A keyboard is required to play the game.
+[Click here]({% link programs/columns-clone/columns-clone.html %}) to play the game in the browser. A keyboard is required to play the game.
 
 This is made possible by [em-dosbox](https://github.com/dreamlayers/em-dosbox) by Boris Gjenero, DOSBox and Emscripten.
 
 ## Download
 {:.no_toc}
 
-- [Windows version binary]({{ site_url }}/assets/columns/columns_win_binary.7z)
-- [Windows version source (FreeBasic)]({{ site_url }}/assets/columns/columns_fb_src.7z)
-- [DOS version binaries (SVGA, CGA, text mode)]({{ site_url }}/assets/columns/columns_dos_binary.zip)
-- [DOS version source (Visual Basic for DOS) and graphics assets]({{ site_url }}/assets/columns/columns_dos_src.zip)
+- [Windows version binary]({% link assets/columns/columns_win_binary.7z %})
+- [Windows version source (FreeBasic)]({% link assets/columns/columns_fb_src.7z %})
+- [DOS version binaries (SVGA, CGA, text mode)]({% link assets/columns/columns_dos_binary.zip %})
+- [DOS version source (Visual Basic for DOS) and graphics assets]({% link assets/columns/columns_dos_src.zip %})
 
 (Last update: 3-Jan-2016)
 
@@ -95,9 +95,9 @@ Jewels drop to the well three at a time (vertically aligned). You are going to p
 
 You can move the jewels left or right, and also to cycle their positions.
 
-When three or more jewels of the same color are connected to a straight line horizontally, vertically or diagonally, these jewels will disappear. The jewels above then settle by gravity. If this cause another three or more jewels of the same color connected to a straight line, they also disappear. This process can be repeated more than five times. 
+When three or more jewels of the same color are connected to a straight line horizontally, vertically or diagonally, these jewels will disappear. The jewels above then settle by gravity. If this cause another three or more jewels of the same color connected to a straight line, they also disappear. This process can be repeated more than five times.
 
-You sometimes get a white special jewel. You may drop it on another jewel, and then all jewels of that color will disappear. 
+You sometimes get a white special jewel. You may drop it on another jewel, and then all jewels of that color will disappear.
 
 
 ### Scoring
@@ -111,18 +111,18 @@ Making lines           | 30 × No of lines made x (Level + 1) × Combo Counter
 Dropping white jewels  | 10 × No of jewels disappearing (excluding white blocks)
 
 
-The combo counter will start at 1 when you drop a jewel block. After jewels disappear (including the use of white block), the counter will increase by 1. If the process of disappearing continue without dropping another jewel block, the counter will then increase to 2, 3, 4, 5, and so on. 
+The combo counter will start at 1 when you drop a jewel block. After jewels disappear (including the use of white block), the counter will increase by 1. If the process of disappearing continue without dropping another jewel block, the counter will then increase to 2, 3, 4, 5, and so on.
 
 A line with 4 jewels is treated as 2 lines, 5 jewels is 3 lines, and so on.
 
-It is possible to get a high score by starting at a high level, drop blocks by pressing X/2 frequently, and to make combos. 
+It is possible to get a high score by starting at a high level, drop blocks by pressing X/2 frequently, and to make combos.
 
 
 ### Level and Difficulty
 
-The level is about the natural dropping speed of the jewel. The higher the level, the higher the speed of dropping. The level will be increased each time you make 30 jewels disappear (excluding white jewels), to a maximum of 9. 
+The level is about the natural dropping speed of the jewel. The higher the level, the higher the speed of dropping. The level will be increased each time you make 30 jewels disappear (excluding white jewels), to a maximum of 9.
 
-If you start at a level higher than 0, then the level will only increase if the number of disappeared jewels reaches 30 × (Level + 1) 
+If you start at a level higher than 0, then the level will only increase if the number of disappeared jewels reaches 30 × (Level + 1)
 
 The difficulty will affect the game in the ways below:
 

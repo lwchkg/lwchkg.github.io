@@ -4,7 +4,7 @@
   url: /programs
   excerpt: See and download lwchkg’s programs
   image: categories/programs_300.jpg
-  
+
 - title: Algorithm
   url: /algorithm
   excerpt: Algorithm design and implementation
@@ -14,8 +14,8 @@
   url: /math
   excerpt: lwchkg’s notes in mathematics
   image: categories/math_300.png
-  
+
 - title: About
-  url: /about
+  url: /about.html
   excerpt: About the website and its author
   image: categories/about_300.png

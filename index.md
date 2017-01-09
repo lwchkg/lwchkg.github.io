@@ -5,7 +5,7 @@ title: "Welcome to lwchkg’s website"
 
 Welcome to lwchkg’s website. Here you can find my computer programs and notes in mathematics.
 
-You may also find something [about me](about).
+You may also find something [about me]({% link about.md %}).
 
 # Latest posts
 

@@ -13,7 +13,7 @@ comments: true
 date: 2015-06-26T23:16:01+08:00
 ---
 
-![Sample graph papers]({{ site_url }}/images/programs/graphpaper_sample_900.png)
+![Sample graph papers]({% link images/programs/graphpaper_sample_900.png %})
 
 A vb.net program that creates rectangular and isometric graph papers (see above) in EMF format. The graph papers can be pasted into Microsoft Word for making lesson notes.
 
@@ -21,14 +21,14 @@ The samples above are the “line” version of the papers. There is another “
 
 ## Download
 
-- [Windows Binary]({{site_url}}/assets/GraphPaper.7z)
+- [Windows Binary]({% link assets/GraphPaper.7z %})
 
 - [Source](https://github.com/lwchkg/graphpaper){:target="_blank"}
 
 ## Using the program
 
 <aside>
-<img alt="Graph paper plotter screenshot" src="{{ site_url }}/images/programs/graphpaper_screenshot_01.png">
+<img alt="Graph paper plotter screenshot" src="{% link images/programs/graphpaper_screenshot_01.png %}">
 </aside>
 
 1. Download the binary.
@@ -40,7 +40,7 @@ The samples above are the “line” version of the papers. There is another “
 1. In “Type of Paper”, select one of the given types.
 
 1. Modify the options if desired.
- 
+
 1. Click “Save to Clipboard”.
 
 1. Paste in Microsoft Word or LibreOffice.

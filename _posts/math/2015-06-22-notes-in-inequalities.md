@@ -14,7 +14,7 @@ date: 2015-06-22T00:23:22+08:00
 
 ## Download the notes
 
-You may download the notes [here]({{ site.url }}/assets/inequalities.pdf).
+You may download the notes [here]({% link assets/inequalities.pdf %}).
 
 
 ## About the notes

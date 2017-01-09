@@ -9,6 +9,8 @@ teaser: categories/programs2_400.jpg # 400x250 px default teaser image used in i
 locale: en-US
 url:
 canonical_url: https://lwchkg.github.com
+feed:
+  path: atom.xml
 
 ## Octopress configuration
 # Default extensions
@@ -28,27 +30,54 @@ titlecase: true
 markdown: kramdown
 
 sass:
-    sass_dir: _sass
-    style: compact
-permalink: /:categories/:title/
+  sass_dir: _sass
+  style: compressed
+permalink: /:categories/:title.html
 kramdown:
   input: GFM
   toc_levels: 1..3
+highlighter: rouge
 gems:
   - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
 
 
 # Site owner
 owner:
-  name: Leung Wing Chung
+  name: Wing-chung Leung
   email: lwchkg@gmail.com
   twitter:
   google:
-    ad-client: 
-    ad-slot: 
-  bio: 
+    ad-client:
+    ad-slot:
+  bio:
   avatar: bio-photo.png # 160x160 px image for author byline
   disqus-shortname: lwchkg
 
 
-exclude: ["lib", "config.rb", ".sass-cache", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "*.sublime-project", "*.sublime-workspace", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "node_modules", "Gruntfile.js", "package.json"]
+include:
+  - .htaccess
+exclude:
+  - "*.less"
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - CHANGELOG
+  - Capfile
+  - Gemfile
+  - Gruntfile.js
+  - LICENSE
+  - README
+  - Rakefile
+  - config
+  - gulpfile.js
+  - lib
+  - log
+  - node_modules
+  - package.json
+  - spec
+  - tmp
