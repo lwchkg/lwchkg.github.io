@@ -16,6 +16,6 @@
   image: categories/math_300.png
   
 - title: About
-  url: /about.html
+  url: /about
   excerpt: About the website and its author
   image: categories/about_300.png
