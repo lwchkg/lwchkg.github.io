@@ -9,9 +9,9 @@ teaser: categories/programs2_400.jpg # 400x250 px default teaser image used in i
 locale: en-US
 
 # Override rogue jekyll-github-metadata config
-url: //lwchkg.github.com
+url: //lwchkg.github.io
 
-canonical_url: https://lwchkg.github.com
+canonical_url: https://lwchkg.github.io
 feed:
   path: atom.xml
 
