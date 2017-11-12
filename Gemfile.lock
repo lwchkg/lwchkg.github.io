@@ -232,6 +232,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  jekyll-github-metadata
   octopress (~> 3.0.0.rc.12)
   wdm (>= 0.1.0)
 
