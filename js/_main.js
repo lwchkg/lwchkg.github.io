@@ -3,6 +3,7 @@ $(document).ready(function(){
   // Menu button click
   $('#js-menu-trigger,#js-menu-screen').on('click touchstart', function(e){
     // $('#js-body').toggleClass('no-scroll');
+    $('#js-menu, #js-menu-screen, #js-menu-trigger').toggleClass('was-clicked', true);
     $('#js-menu, #js-menu-screen').toggleClass('is-visible');
     $('#js-menu-trigger').toggleClass('slide close');
     // $('#masthead, #page-wrapper').toggleClass('slide');

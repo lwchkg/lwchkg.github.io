@@ -39,7 +39,9 @@
   &:hover {
     background: $black;
   }
-  transition: $sliding-menu-animation;
+  &.was-clicked {
+    transition: $sliding-menu-animation;
+  }
   &.slide {
     background: $danger-color;
     transform: translateX(0); /* don't slide close button on small screens only */
@@ -71,13 +73,15 @@
   @include media($large) {
     width: em(900);
   }
-  transform: translateX(100%);
-  transition: $sliding-menu-animation;
   background: $sliding-menu-background;
   z-index: 20;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+  transform: translateX(100%);
+  &.was-clicked, &.is-visible {
+    transition: $sliding-menu-animation;
+  }
   &.is-visible {
     visibility: visible;
     transform: translateX(0);

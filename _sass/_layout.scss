@@ -9,8 +9,8 @@
 #masthead {
 	padding: $gutter;
 	z-index: 5;
-	@include transform(translate(0,0));
-	@include transition(500ms cubic-bezier(.645,.045,.355,1.000));
+	//@include transform(translate(0,0));
+	//@include transition(500ms cubic-bezier(.645,.045,.355,1.000));
 	&.slide {
 		@include transform(translate(-1600px,0));
 	}
@@ -132,8 +132,8 @@
 	@include size(100% 100%);
 	-webkit-overflow-scrolling: touch;
 	z-index: 2;
-	@include transform(translate(0,0));
-	@include transition(500ms cubic-bezier(.645,.045,.355,1.000));
+	// @include transform(translate(0,0));
+	// @include transition(500ms cubic-bezier(.645,.045,.355,1.000));
 	&.slide {
 		@include transform(translate(-60rem,0));
 	}
@@ -148,13 +148,13 @@
 		@include media($large) {
 			float: right;
 			margin: 1em;
-			
+
 			// reverse column shift
 			$n-columns: -3;
 			$parent-columns: 12;
 			$direction: get-direction($layout-direction, $default-layout-direction);
 			margin-#{$direction}: $n-columns * flex-grid(1, $parent-columns) + $n-columns * flex-gutter($parent-columns);
-			
+
 			$n-columns: 5;
 			$parent-columns: 9;
 			max-width: $n-columns * flex-grid(1, $parent-columns) + $n-columns * flex-gutter($parent-columns);

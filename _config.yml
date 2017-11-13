@@ -9,7 +9,7 @@ teaser: categories/programs2_400.jpg # 400x250 px default teaser image used in i
 locale: en-US
 
 # Override rogue jekyll-github-metadata config
-url: //lwchkg.github.io
+url: https://lwchkg.github.io
 
 canonical_url: https://lwchkg.github.io
 feed:
@@ -40,7 +40,7 @@ kramdown:
   input: GFM
   toc_levels: 1..3
 highlighter: rouge
-gems:
+plugins:
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
