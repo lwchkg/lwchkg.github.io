@@ -11,9 +11,10 @@ image:
   thumb:
 comments: true
 date: 2015-06-26T11:12:14+08:00
+modified: 2023-10-05T14:51:59Z
 ---
 
-You are given a grid of pipes of different shapes. The aim of the game is to connect all the pipes together, without loops and free ends. [Play the game now](https://cdn.rawgit.com/lwchkg/pipesgame/71d147b2c258f9c75405900693a773094e0c0f73/pipes.html){:target="_blank"}.
+You are given a grid of pipes of different shapes. The aim of the game is to connect all the pipes together, without loops and free ends. [Play the game now](https://lwchkg.github.io/pipesgame/pipes.html){:target="_blank"}.
 
 You may connect the pipes by rotating the pieces only. See the pictures below to see what a new game and its finished state look like.
 
@@ -24,7 +25,7 @@ You may connect the pipes by rotating the pieces only. See the pictures below to
 
 ## Playing the game
 
-[Play the game now](https://cdn.rawgit.com/lwchkg/pipesgame/71d147b2c258f9c75405900693a773094e0c0f73/pipes.html){:target="_blank"}. Currently the game works well only for desktop computers with a mouse.
+[Play the game now](https://lwchkg.github.io/pipesgame/pipes.html){:target="_blank"}. Currently the game works well only for desktop computers with a mouse.
 
 
 ## Board size
@@ -47,7 +48,7 @@ The images above have a board size of 8 × 8. If you think that it is too easy, 
 
 ## Inspired from
 
-- [Pipes (J2ME)](http://www.michaelkerley.net/wp/pipes-j2me/){:target="_blank"}
+- [Pipes (J2ME)](https://www.michaelkerley.net/pipes-j2me.html){:target="_blank"}
   (This is the version I played with my Nokia phone daily until the phone is replaced.)
 
 - Another less advanced HTML + JavaScript version the same game. I am unable to find the link at the time of writing. (Disappeared from the internet?)
