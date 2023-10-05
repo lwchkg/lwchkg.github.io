@@ -3,7 +3,7 @@ layout: article
 title: Add Spaces to a Phrase/Paragraph Without Spaces
 modified:
 categories: algorithm
-excerpt: Write a program that breaks up a string of words with no spaces into a string with the appropriate spaces.
+excerpt: Interview prep - write a program that breaks up a string of words with no spaces into a string with the appropriate spaces.
 tags: [medium_difficulty, c++]
 image:
   feature:
@@ -96,7 +96,7 @@ The solution was coded using C++. A few points are noted here:
 
 Testing is done against simple phrases and passages in the Wikipedia. As expected, my first try does yield a result quickly.
 
-But the splitting result is not that good. The string <tt>iamahero</tt> turns out to be <tt>i a ma hero</tt> instead of <tt>i am a hero</tt>. (Note: “ma” is a dictionary word.) 
+But the splitting result is not that good. The string <tt>iamahero</tt> turns out to be <tt>i a ma hero</tt> instead of <tt>i am a hero</tt>. (Note: “ma” is a dictionary word.)
 
 *Solution*: Put frequently used words a higher priority. The SCOWL dictionary comes with different numerical sizes! What a coincidence! So these sizes can be simply used as weights in Dijkstra algorithm for better results.
 
@@ -129,7 +129,7 @@ Time elapsed in reading dictionary: 0.956782s
 Enter the string to be broken into words: [[input skipped]]
 
 Result:
-a novel is along narrative normally in prose which describes fictional characters and events usually in the form of a sequential story while i an watt in the rise of the novel 1957 suggests that the novel came into being in the early 18 th century the genre has also been described as possessing a continuous and comprehensive history of about two thousand years with historical roots in classical greece and rome medieval early modern romance and in the tradition of the novel lathe latter an italian word used to describe short stories supplied the present generic english term in the 18 th century miguel de cervantes author of don quixote is frequently cited as the first significant europe an novelist of the modern era the first part of don quixote was published in 1605 while a more precise definition of the genre is difficult the main elements that critics discuss are how the narrative and especially the plot is constructed the themes settings and characterization how language is used and the way that plot character and setting relate to reality the romance is a related long prose narrative w alter scott defined it as a fictitious narrative in prose or verse the interest of which turns upon marvellous and uncommon incidents whereas in the novel the events are accommodated to the ordinary train of human events and the modern state of society however many romances including the historical romances of scott emily brontes wu the ring heights and her man melvilles mo by dick are also frequently called novels and scott describes romance as a kind red term romance as defined here should not be confused with the genre fiction love romance or romance novel other europe an languages do not distinguish between romance and novel a novel isle rom and err o ma nil roman z o 
+a novel is along narrative normally in prose which describes fictional characters and events usually in the form of a sequential story while i an watt in the rise of the novel 1957 suggests that the novel came into being in the early 18 th century the genre has also been described as possessing a continuous and comprehensive history of about two thousand years with historical roots in classical greece and rome medieval early modern romance and in the tradition of the novel lathe latter an italian word used to describe short stories supplied the present generic english term in the 18 th century miguel de cervantes author of don quixote is frequently cited as the first significant europe an novelist of the modern era the first part of don quixote was published in 1605 while a more precise definition of the genre is difficult the main elements that critics discuss are how the narrative and especially the plot is constructed the themes settings and characterization how language is used and the way that plot character and setting relate to reality the romance is a related long prose narrative w alter scott defined it as a fictitious narrative in prose or verse the interest of which turns upon marvellous and uncommon incidents whereas in the novel the events are accommodated to the ordinary train of human events and the modern state of society however many romances including the historical romances of scott emily brontes wu the ring heights and her man melvilles mo by dick are also frequently called novels and scott describes romance as a kind red term romance as defined here should not be confused with the genre fiction love romance or romance novel other europe an languages do not distinguish between romance and novel a novel isle rom and err o ma nil roman z o
 
 Time elapsed in splitting: 0.00495095s
 </samp></div>

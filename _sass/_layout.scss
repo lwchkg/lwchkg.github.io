@@ -182,9 +182,23 @@
 			a { text-decoration: none; }
 			p a,
 			li a {
-				border-bottom: 1px dotted lighten($link-color, 50);
+				border-bottom: 2px dotted $link-color;
 				&:hover {
 					border-bottom-style: solid;
+				}
+				&[href^="http://"]::after, &[href^="https://"]::after {
+					content: "\e89e";
+					margin-left: 0.125rem;
+					vertical-align: text-bottom;
+					font-family: "Material Symbols Outlined";
+					font-style: normal;
+					.material-symbols-outlined {
+						font-variation-settings:
+						'FILL' 0,
+						'wght' 400,
+						'GRAD' 0,
+						'opsz' 24;
+					}
 				}
 			}
 			p > a.reversefootnote {

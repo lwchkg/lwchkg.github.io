@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Pipes Connect Game
-modified:
 categories: programs
 excerpt: Connect the pipes into a single fully connected network, without loops and free ends.
 tags: []

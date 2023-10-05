@@ -3,7 +3,7 @@ layout: article
 title: Avoid std::sort(..., ..., std::greater&lt;int&gt;()) and the Like
 modified:
 categories: algorithm
-excerpt:
+excerpt: Dealing with problems sorting numbers in C++14, C++11 and C++98.
 tags: [c++, sort, greater]
 image:
   feature:
