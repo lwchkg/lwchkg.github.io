@@ -22,7 +22,9 @@ layout: default
 				<hr />
 				<footer class="page-footer">
 					{% if page.categories %}{% include page-author.html %}{% endif %}
+					{%- comment %}
 					{% if page.share != false %}{% include share-this.html %}{% endif %}
+					{% endcomment -%}
 					{% include page-meta.html %}
 				</footer><!-- /.footer -->
 				<aside class="comments">

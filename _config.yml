@@ -53,6 +53,22 @@ owner:
     ad-slot:
   bio:
   avatar: bio-photo.png # 160x160 px image for author byline
+
+comments:
+  type: giscus  # giscus or disqus
+  giscus:
+    data-repo: lwchkg/lwchkg.github.io
+    data-repo-id: MDEwOlJlcG9zaXRvcnkzMjkwNDc2OQ==
+    data-category: Announcements
+    data-category-id: DIC_kwDOAfYWQc4CZ37B
+    data-mapping: pathname
+    data-strict: 0
+    data-reactions-enabled: 1
+    data-emit-metadata: 0
+    data-input-position: bottom
+    data-theme: light
+    data-lang: en
+
   disqus-shortname: lwchkg
 
 

@@ -4,7 +4,7 @@
 
 .tile {
   @include outer-container;
-  margin-bottom: $gutter;
+  margin-bottom: $gutter * 2;
   @include media($micro) {
     @include fill-parent;
   }
@@ -26,7 +26,7 @@
     position: relative;
     display: block;
     // add soft border (shadow) and rounded corners
-    &:after {
+    &::after {
       border-radius: 8px;
       content: '';
       position: absolute;
@@ -39,7 +39,7 @@
       @include transition(background 0.3s);
     }
     &:hover {
-      &:after {
+      &::after {
         background: rgba($base-color,0.1);
       }
     }
@@ -49,4 +49,10 @@
   }
 
   p { margin-top: 0.2rem; }
+  p:last-child { margin-bottom: 0; }
+
+  &:hover {
+    outline: 2px dotted $link-color;
+    outline-offset: 2px;
+  }
 }
