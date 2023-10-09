@@ -5,7 +5,9 @@
 .tile {
   @include outer-container;
   margin-bottom: $gutter * 2;
+
   @include media($micro) {
+    display: block;
     @include fill-parent;
   }
   @include media(new-breakpoint(min-width em(480) 12)) {
