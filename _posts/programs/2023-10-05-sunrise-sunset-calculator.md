@@ -10,7 +10,7 @@ image:
   thumb:
 comments: true
 date: 2023-10-05T18:34:25Z
-modified:
+modified: 2023-10-11T16:57:35Z
 ---
 <aside>
 <img alt="Sunrise and Sunset Calculator feature picture" src="{% link images/programs/sunrise_sunset_calculator_800.webp %}">
@@ -23,8 +23,10 @@ So this app is created as my first try with Flutter - a cross platform app devel
 
 ## How to use
 
-1. [Open the browser app](https://lwchkg.github.io/sunrise_sunset_calculator/){:target="_blank"}.
-   (Note: the app will be available in Android soon.)
+1. Open the app with one of the badges below:<br>
+   [![Get it on Google Play]({% link images/programs/google-play-badge.webp %}){:width="188"}](https://play.google.com/store/apps/details?id=com.lwchkg.sunrise_sunset_calculator){:target="_blank" class="imglink"}
+   &nbsp;
+   [![Open in any browser]({% link images/programs/open_in_any_browser.webp %}){:width="188"}](https://lwchkg.github.io/sunrise_sunset_calculator/){:target="_blank" class="imglink"}
 2. Allow the use of your location.
 3. **If you care more about sunlight than actual sunrise and sunset (which I
    do), check the civil twilight times.**

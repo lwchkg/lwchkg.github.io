@@ -184,15 +184,18 @@
 			li a {
 				text-decoration: underline dotted $link-color;
 				text-decoration-thickness: 2px;  // Keep separate to avoid problems in older browsers.
-				&:hover { text-decoration-style: solid;	}
-				&[href^="http://"]::after, &[href^="https://"]::after {
-					content: "\e89e";
-					margin-left: 0.125rem;
-					vertical-align: text-top;
-					font-family: $base-font, "Material Symbols Outlined";
-					font-style: normal;
-					.material-symbols-outlined {
-						font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+				&:hover { text-decoration-style: solid; }
+				&.imglink { display: inline-block; }
+				&:not(.imglink) {
+					&[href^="http://"]::after, &[href^="https://"]::after {
+						content: "\e89e";
+						margin-left: 0.125rem;
+						vertical-align: text-top;
+						font-family: $base-font, "Material Symbols Outlined";
+						font-style: normal;
+						.material-symbols-outlined {
+							font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+						}
 					}
 				}
 			}
