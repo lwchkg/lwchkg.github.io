@@ -11,6 +11,7 @@ url:
 canonical_url: https://lwchkg.github.io
 feed:
   path: atom.xml
+lang: en-us
 
 ## Octopress configuration
 # Default extensions

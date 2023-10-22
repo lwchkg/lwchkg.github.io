@@ -16,7 +16,7 @@
   }
   .entry-date {
     @include font-size(16,no);
-    color: lighten($text-color,25);
+    color: $entry-date-color;
   }
   .post-title {
     @include font-size(18,no);

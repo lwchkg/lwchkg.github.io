@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Columns Clone (updated)
+title: Columns Clone
 modified:
 categories: programs
 excerpt: A Columns clone made in 1997 that features a “PRO” mode.
@@ -19,7 +19,7 @@ date: 2016-01-04T01:35:58+08:00
 
 This clone of Columns was made in 1997, just after I had my public exam. This game features a “PRO” mode, which a worst possible piece is always generated.
 
-You may compare the “PRO” mode with [Bastet Tetris](http://fph.altervista.org/prog/bastet.html) by Federico Poloni.
+You may compare the “PRO” mode with [Bastet Tetris](http://fph.altervista.org/prog/bastet.html){:target="_blank"} by Federico Poloni.
 
 The program was ported from Visual Basic for DOS / SVGAPV to FreeBasic in 2007.
 
@@ -28,7 +28,7 @@ The program was ported from Visual Basic for DOS / SVGAPV to FreeBasic in 2007.
 
 [Click here]({% link programs/columns-clone/columns-clone.html %}) to play the game in the browser. A keyboard is required to play the game.
 
-This is made possible by [em-dosbox](https://github.com/dreamlayers/em-dosbox) by Boris Gjenero, DOSBox and Emscripten.
+This is made possible by [em-dosbox](https://github.com/dreamlayers/em-dosbox){:target="_blank"} by Boris Gjenero, DOSBox and Emscripten.
 
 ## Download
 {:.no_toc}

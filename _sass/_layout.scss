@@ -32,7 +32,6 @@
 	// font-weight: 700;
 	@include font-size(24,no);
 	line-height: .5 * $masthead-height; // half the height to center vertically
-	// text-transform: uppercase;
 }
 
 
@@ -172,12 +171,6 @@
 	@at-root {
 		.page-content {
 			@include fill-parent;
-			// larger font for intro paragraph
-			//> p {
-			//	&:first-child {
-			//		@include font-size(20,yes,30);
-			//	}
-			//}
 			// cleaner underlines for links
 			a { text-decoration: none; }
 			p a,
@@ -368,16 +361,15 @@
 
 #site-footer {
 	@include outer-container;
-	margin-top: (3 * (0px + $doc-line-height));
-	margin-top: (3 * (0rem + ($doc-line-height / $doc-font-size)));
+	margin-top: (1.5 * (0rem + ($doc-line-height / $doc-font-size)));
 	padding-bottom: $gutter;
 	font-family: $alt-font;
   /* Copyright text */
 	.copyright {
 		@include font-size(12);
-		color: lighten($black,60);
+		color: $copyright-color;
 		a {
-			color: lighten($black,60);
+			color: $copyright-color;
 			text-decoration: none;
 		}
 	}
